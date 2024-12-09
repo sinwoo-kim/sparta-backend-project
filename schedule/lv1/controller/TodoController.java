@@ -22,13 +22,13 @@ public class TodoController {
     }
 
     // 일정 생성
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<TodoResponseDto> createTodoAPI(@RequestBody TodoRequestDto requestDto) {
         return new ResponseEntity<>(todoService.createTodo(requestDto), HttpStatus.CREATED);
     }
 
     // 전체 일정 조회
-    @GetMapping("/findall")
+    @GetMapping()
     public List<TodoResponseDto> findAllTodoAPI() {
 
         return todoService.findAllTodos();
