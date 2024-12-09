@@ -1,4 +1,35 @@
-# 일정관리앱 만들기
+# 일정관리앱 서비스
+간단하게 일정을 추가, 조회, 수정, 삭제할 수 있는 기능을 가진 일정관리앱 입니다.
+
+## 배경
+Sparta 백엔드 Spring 4주차 과제로 주어진 일정관리 앱 만들기는 다음과 같은 도전적인 조건 속에서 진행된 프로젝트입니다:
+
+- 대상: 노베이스 비전공자
+- 주어진 시간: 약 7일
+
+이 프로젝트는 Spring Framework와 Database를 학습하면서, 필수 기능인 CRUD(Create, Read, Update, Delete)를 구현하는 것입니다.
+
+
+## 사용 기술
+<!-- Java -->
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+## API 명세
+
+|기능|Method|Request|Response| 상태 코드|
+|------|---|---|---|---|
+|Todo 생성|`CREATE`|/todo|등록 정보|CREATED|
+|Todo 전체 조회|`GET`|/todo|다건 응답 정보|OK|
+|Todo 단건 조회|`GET`|/{id}|단건 응답 정보|OK|
+|Todo 단건 수정|`PATCH`|/{id}|수정 정보|OK|
+|Todo 단건 삭제|`DELETE`|/{id}|-|OK|
+
+## ERD
+
+![image](https://github.com/user-attachments/assets/d7975149-12d1-4033-93c5-9b88fb23696b)
+
+
 
  ## 트러블 슈팅
  ### Lv 1
