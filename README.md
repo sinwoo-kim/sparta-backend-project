@@ -1,15 +1,13 @@
 # 일정관리앱 만들기
 
-## 트러블 슈팅
-
-### Lv 1
-- [@PathVariable에 변수 이름을 명시하지 않으면 IllegalArgumentException 예외 발생](#lv1-1)
-
-### Lv 2
-- [단건 일정 수정하기 기능 요청 시 MissingServletRequestParameterException 예외 발생](#lv2-1)
+ ## 트러블 슈팅
+ ### Lv 1
+ - [@PathVariable에 변수 이름을 명시하지 않으면 IllegalArgumentException 예외 발생](#Lv-1-트러블-슈팅)
+ ### Lv 2
+ - [클라이언트 PUT 요청 시 MissingServletRequestParameterException 예외 발생](#Lv-2-트러블-슈팅)
 
 ***
-
+## Lv 1 트러블 슈팅
 ### `@PathVariable`에 변수 이름을 명시하지 않으면 `IllegalArgumentException` 예외 발생
 
 #### 1. 배경
@@ -36,7 +34,7 @@
 https://dajeongdev.github.io/wiki/2024/01/17/pathvariable-name-missing.html
 
 ***
-
+## Lv 2 트러블 슈팅
 ### 단건 일정 수정하기 기능 요청 시 MissingServletRequestParameterException 예외 발생
 
 #### 1. 배경
