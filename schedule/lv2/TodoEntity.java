@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 @Getter
 public class TodoEntity {
-@Setter
+    @Setter
     private Long id;
     private String work;
     private String name;

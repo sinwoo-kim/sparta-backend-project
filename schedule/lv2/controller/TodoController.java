@@ -42,10 +42,16 @@ public class TodoController {
     }
 
     // 선택 일정 수정
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<TodoResponseDto> updateTodoAPI(@PathVariable("id") Long id,
                                                         @RequestBody TodoRequestDto requestDto) {
 
         return new ResponseEntity<>(todoService.updateTodo(id, requestDto), HttpStatus.OK);
+    }
+
+    // 선택 일정 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<TodoResponseDto> deleteTodoAPI(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(todoService.deleteTodo(id), HttpStatus.OK);
     }
 }

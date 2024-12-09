@@ -65,9 +65,9 @@ public class TodoServiceImpl implements TodoService {
         todo.update(dto.getWork(), dto.getName(),dto.getUpdateAt());
         return new TodoResponseDto(todo);
     }
-
     @Override
-    public void delete() {
+    public TodoResponseDto deleteTodo(Long id) {
+        return new TodoResponseDto(todoRepository.deleteTodo(id));
 
     }
 }
