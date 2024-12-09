@@ -1,12 +1,13 @@
-package schedule.lv1.controller;
+package schedule.lv2.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import schedule.lv1.dto.TodoRequestDto;
-import schedule.lv1.dto.TodoResponseDto;
-import schedule.lv1.survice.TodoService;
+import schedule.lv2.dto.TodoRequestDto;
+import schedule.lv2.dto.TodoResponseDto;
+import schedule.lv2.survice.TodoService;
+
 import java.util.List;
 
 @RestController
@@ -40,4 +41,11 @@ public class TodoController {
         return new ResponseEntity<>(todoService.findSelectTodo(id), HttpStatus.OK );
     }
 
+    // 선택 일정 수정
+    @PutMapping("/{id}")
+    public ResponseEntity<TodoResponseDto> updateTodoAPI(@PathVariable("id") Long id,
+                                                        @RequestBody TodoRequestDto requestDto) {
+
+        return new ResponseEntity<>(todoService.updateTodo(id, requestDto), HttpStatus.OK);
+    }
 }

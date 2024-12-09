@@ -1,12 +1,12 @@
-package schedule.lv1.controller.survice;
+package schedule.lv2.survice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import schedule.lv1.controller.TodoEntity;
-import schedule.lv1.controller.dto.TodoRequestDto;
-import schedule.lv1.controller.dto.TodoResponseDto;
-import schedule.lv1.controller.repository.TodoRepository;
+import schedule.lv2.TodoEntity;
+import schedule.lv2.dto.TodoRequestDto;
+import schedule.lv2.dto.TodoResponseDto;
+import schedule.lv2.repository.TodoRepository;
 
 import java.util.List;
 
@@ -52,8 +52,18 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void modify() {
+    public TodoResponseDto updateTodo(Long id, TodoRequestDto dto) {
+        TodoEntity todo = todoRepository.updateTodo(id);
 
+        if(todo == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Does not exit id =" + id);
+        }
+
+        if(todo.getPassword() != dto.getPassword()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Password mismatch");
+        }
+        todo.update(dto.getWork(), dto.getName(),dto.getUpdateAt());
+        return new TodoResponseDto(todo);
     }
 
     @Override

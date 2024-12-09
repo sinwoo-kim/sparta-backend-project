@@ -1,7 +1,7 @@
-package schedule.lv1.controller.survice;
+package schedule.lv1.survice;
 
-import schedule.lv1.controller.dto.TodoRequestDto;
-import schedule.lv1.controller.dto.TodoResponseDto;
+import schedule.lv1.dto.TodoRequestDto;
+import schedule.lv1.dto.TodoResponseDto;
 
 import java.util.List;
 

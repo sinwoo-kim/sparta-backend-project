@@ -1,4 +1,4 @@
-package schedule.lv1.controller.dto;
+package schedule.lv1.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

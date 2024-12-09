@@ -1,8 +1,8 @@
-package schedule.lv1.controller.repository;
+package schedule.lv1.repository;
 
 import org.springframework.stereotype.Repository;
-import schedule.lv1.controller.TodoEntity;
-import schedule.lv1.controller.dto.TodoResponseDto;
+import schedule.lv1.TodoEntity;
+import schedule.lv1.dto.TodoResponseDto;
 
 import java.util.*;
 

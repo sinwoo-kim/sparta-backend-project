@@ -1,9 +1,9 @@
-package schedule.lv1.controller.dto;
+package schedule.lv2.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
-import schedule.lv1.controller.TodoEntity;
+import schedule.lv2.TodoEntity;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 public class TodoResponseDto {
     private Long id;
-    private int work;
+    private String work;
     private String name;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
