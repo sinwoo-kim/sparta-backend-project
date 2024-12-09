@@ -10,5 +10,4 @@ public interface TodoRepository {
     TodoEntity findSelectTodo(Long id);
     List<TodoResponseDto> findAllTodos();
     TodoEntity updateTodo(Long id);
-    TodoEntity deleteTodo(Long id);
 }

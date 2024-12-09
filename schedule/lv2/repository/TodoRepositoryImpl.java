@@ -41,9 +41,4 @@ public class TodoRepositoryImpl implements TodoRepository {
     public TodoEntity updateTodo(Long id) {
         return myTodoRepository.get(id);
     }
-
-    @Override
-    public TodoEntity deleteTodo(Long id) {
-        return myTodoRepository.remove(id);
-    }
 }
