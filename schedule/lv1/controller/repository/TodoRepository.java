@@ -1,8 +1,7 @@
-package schedule.repository;
+package schedule.lv1.controller.repository;
 
-import schedule.TodoEntity;
-import schedule.dto.TodoRequestDto;
-import schedule.dto.TodoResponseDto;
+import schedule.lv1.controller.TodoEntity;
+import schedule.lv1.controller.dto.TodoResponseDto;
 
 import java.util.List;
 

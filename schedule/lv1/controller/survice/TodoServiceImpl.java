@@ -1,14 +1,12 @@
-package schedule.survice;
+package schedule.lv1.controller.survice;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import schedule.TodoApplication;
-import schedule.TodoEntity;
-import schedule.dto.TodoRequestDto;
-import schedule.dto.TodoResponseDto;
-import schedule.repository.TodoRepository;
+import schedule.lv1.controller.TodoEntity;
+import schedule.lv1.controller.dto.TodoRequestDto;
+import schedule.lv1.controller.dto.TodoResponseDto;
+import schedule.lv1.controller.repository.TodoRepository;
 
 import java.util.List;
 

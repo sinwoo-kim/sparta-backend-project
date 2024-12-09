@@ -1,12 +1,12 @@
-package schedule.controller;
+package schedule.lv1.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import schedule.dto.TodoRequestDto;
-import schedule.dto.TodoResponseDto;
-import schedule.survice.TodoService;
+import schedule.lv1.controller.dto.TodoRequestDto;
+import schedule.lv1.controller.dto.TodoResponseDto;
+import schedule.lv1.controller.survice.TodoService;
 import java.util.List;
 
 @RestController

@@ -1,4 +1,4 @@
-package schedule;
+package schedule.lv1.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

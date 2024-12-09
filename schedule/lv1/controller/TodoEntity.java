@@ -1,4 +1,4 @@
-package schedule;
+package schedule.lv1.controller;
 
 import lombok.Getter;
 import lombok.Setter;
