@@ -1,16 +1,13 @@
-package schedule.connectdatabase;
+package scheduledevelop.lv2;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
-
 @Getter
-@ToString
 public class TodoEntity {
-    private long id;
+    @Setter
+    private Long id;
     private String work;
     private String name;
     private int password;
@@ -22,14 +19,6 @@ public class TodoEntity {
         this.work = work;
         this.name = name;
         this.password = password;
-        this.createdAt = createdAt;
-        this.updateAt = updateAt;
-    }
-
-    public TodoEntity(long id, String work, String name, LocalDateTime createdAt, LocalDateTime updateAt) {
-        this.id = id;
-        this.work = work;
-        this.name = name;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
     }

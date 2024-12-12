@@ -1,17 +1,14 @@
-package schedule.connectdatabase.survice;
+package scheduledevelop.connectdatabase.survice;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.ILoggerFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
-import schedule.connectdatabase.TodoEntity;
-import schedule.connectdatabase.dto.TodoRequestDto;
-import schedule.connectdatabase.dto.TodoResponseDto;
-import schedule.connectdatabase.repository.TodoRepository;
+import scheduledevelop.connectdatabase.TodoEntity;
+import scheduledevelop.connectdatabase.dto.TodoRequestDto;
+import scheduledevelop.connectdatabase.dto.TodoResponseDto;
+import scheduledevelop.connectdatabase.repository.TodoRepository;
 
 import java.util.List;
 import java.util.Optional;

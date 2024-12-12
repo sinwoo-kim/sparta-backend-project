@@ -1,13 +1,13 @@
-package schedule.connectdatabase.controller;
+package scheduledevelop.connectdatabase.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import schedule.connectdatabase.dto.TodoRequestDto;
-import schedule.connectdatabase.dto.TodoResponseDto;
-import schedule.connectdatabase.survice.TodoService;
+import scheduledevelop.connectdatabase.dto.TodoRequestDto;
+import scheduledevelop.connectdatabase.dto.TodoResponseDto;
+import scheduledevelop.connectdatabase.survice.TodoService;
 
 import java.util.List;
 

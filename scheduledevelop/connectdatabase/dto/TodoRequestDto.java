@@ -1,8 +1,7 @@
-package schedule.connectdatabase.dto;
+package scheduledevelop.connectdatabase.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
