@@ -5,15 +5,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
-import schedule.connectdatabase.TodoApplication;
 import schedule.connectdatabase.TodoEntity;
-import schedule.connectdatabase.dto.TodoRequestDto;
 import schedule.connectdatabase.dto.TodoResponseDto;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,5 +1,6 @@
 package schedule.connectdatabase.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +14,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todo")
+@RequiredArgsConstructor
 public class TodoController {
 
     private final ApplicationContext applicationContext;
     private final TodoService todoService;
-
-    public TodoController(ApplicationContext applicationContext, TodoService todoService) {
-        this.applicationContext = applicationContext;
-        this.todoService = todoService;
-    }
 
     // 1. 일정 생성
     @PostMapping()
