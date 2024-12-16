@@ -6,10 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import scheduledevelop.lv1.Todo;
-import scheduledevelop.lv1.dto.TodoFindResponseDto;
-import scheduledevelop.lv1.dto.TodoRequestDto;
-import scheduledevelop.lv1.dto.TodoResponseDto;
-import scheduledevelop.lv1.dto.TodosResponseDto;
+import scheduledevelop.lv1.dto.*;
 import scheduledevelop.lv1.survice.TodoService;
 
 import java.util.List;
@@ -43,6 +40,13 @@ public class TodoController {
         TodoFindResponseDto findTodo = todoService.findById(id);
         return new ResponseEntity<>(findTodo, HttpStatus.OK);
     }
+
+    // 선택 수정 ( Title, Contents )
+    @PatchMapping("/{id}")
+    public ResponseEntity<TodoResponseDto> modifyTodoAPI(@PathVariable("id") Long id, @RequestBody TodoRequestDto requestDto) {
+        return new ResponseEntity<>(todoService.modifyTodo(id, requestDto.getTitle(),requestDto.getContents()), HttpStatus.OK);
+    }
+
 
 
 }

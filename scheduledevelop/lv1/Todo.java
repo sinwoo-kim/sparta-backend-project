@@ -7,9 +7,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.Getter;
+import lombok.Setter;
 import scheduledevelop.lv1.dto.TodoRequestDto;
 
-@Getter
+@Getter @Setter
 @Entity(name = "todo")
 public class Todo extends BaseEntity {
 

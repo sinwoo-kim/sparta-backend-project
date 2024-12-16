@@ -1,13 +1,12 @@
 package scheduledevelop.lv1.survice;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import scheduledevelop.lv1.Todo;
-import scheduledevelop.lv1.dto.TodoFindResponseDto;
-import scheduledevelop.lv1.dto.TodoResponseDto;
-import scheduledevelop.lv1.dto.TodosResponseDto;
+import scheduledevelop.lv1.dto.*;
 import scheduledevelop.lv1.repository.TodoRepository;
 
 import java.util.List;
@@ -40,9 +39,23 @@ public class TodoServiceimpl implements TodoService {
     // 3. todo READ :: FIND ID
     @Override
     public TodoFindResponseDto findById(Long id) {
-        Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Todo not found with id: " + id));
+        Optional<Todo> byId = todoRepository.findById(id);
 
-        return new TodoFindResponseDto(todo);
+        if(byId.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not found by id" + id);
+        }
+        return new TodoFindResponseDto(byId.get());
+    }
+
+    // 4. todo MODIFY :: TITLE, CONTENTS
+    @Override
+    @Transactional // Dirty Checking 작동을 위한 어노테이션.
+    public TodoResponseDto modifyTodo(Long id, String title, String contents) {
+
+        Todo findTodo = todoRepository.findByIdOrElseThrow(id);
+        findTodo.setTitle(title);
+        findTodo.setContents(contents);
+
+        return new TodoResponseDto(findTodo);
     }
 }
