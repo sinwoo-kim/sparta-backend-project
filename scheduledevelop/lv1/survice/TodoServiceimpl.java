@@ -58,4 +58,12 @@ public class TodoServiceimpl implements TodoService {
 
         return new TodoResponseDto(findTodo);
     }
+
+    // 5. todo DELETE
+    @Override
+    public void deleteTodo(Long id) {
+
+        Todo findTodo = todoRepository.findByIdOrElseThrow(id);
+        todoRepository.deleteById(id);
+    }
 }

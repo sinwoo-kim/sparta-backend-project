@@ -2,6 +2,7 @@ package scheduledevelop.lv1.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,14 @@ public class TodoController {
     @PatchMapping("/{id}")
     public ResponseEntity<TodoResponseDto> modifyTodoAPI(@PathVariable("id") Long id, @RequestBody TodoRequestDto requestDto) {
         return new ResponseEntity<>(todoService.modifyTodo(id, requestDto.getTitle(),requestDto.getContents()), HttpStatus.OK);
+    }
+
+
+    // 선택 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteTodoAPI(@PathVariable("id") Long id) {
+        todoService.deleteTodo(id);
+        return new ResponseEntity<>("sucsess",HttpStatus.OK);
     }
 
 
