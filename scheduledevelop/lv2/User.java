@@ -2,6 +2,7 @@ package scheduledevelop.lv2;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import scheduledevelop.lv2.Todo;
 
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Getter @Setter
 @Entity
 @Table(name = "`user`")
 public class User extends BaseEntity {

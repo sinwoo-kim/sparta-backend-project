@@ -33,4 +33,12 @@ public class UserService {
         User foundUser = userRepository.findByIdorElseThrow(id);
         return new UserResponseDto(foundUser);
     }
+
+    public UserResponseDto modifyUser(Long id, String name, String email) {
+        User foundUser = userRepository.findByIdorElseThrow(id);
+        foundUser.setName(name);
+        foundUser.setEmail(email);
+
+        return new UserResponseDto(foundUser);
+    }
 }
