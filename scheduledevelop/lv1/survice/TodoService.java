@@ -1,12 +1,15 @@
 package scheduledevelop.lv1.survice;
 
-import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.repository.JpaRepository;
 import scheduledevelop.lv1.Todo;
-import scheduledevelop.lv1.dto.TodoRequestDto;
+import scheduledevelop.lv1.dto.TodoFindResponseDto;
 import scheduledevelop.lv1.dto.TodoResponseDto;
-import scheduledevelop.lv1.repository.TodoRepository;
+import scheduledevelop.lv1.dto.TodosResponseDto;
+
+import java.util.List;
 
 public interface TodoService {
     TodoResponseDto createTodo(String authorName, String title, String contents);
+    List<TodosResponseDto> findTodos();
+
+    TodoFindResponseDto findById(Long id);
 }

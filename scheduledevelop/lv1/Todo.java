@@ -10,7 +10,7 @@ import lombok.Getter;
 import scheduledevelop.lv1.dto.TodoRequestDto;
 
 @Getter
-@Entity(name = "schedule")
+@Entity(name = "todo")
 public class Todo extends BaseEntity {
 
     @Id

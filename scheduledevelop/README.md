@@ -11,8 +11,15 @@ lv1.
 
 트러블슈팅
 
-lv1. TodoRequestDto : HTTP객체 변환 과정에서 역직렬화 수행 안되는 문제
-에러코드 
+lv1. 
+- TodoRequestDto : HTTP객체 변환 과정에서 역직렬화 수행 안되는 문제
+에러코드
+- 시간 DB에 저장되지 않는 문제 : application @EnableJpaAuditing // Auditing 기능 비활성화 되있었음.
+- 선택 조회 기능 구현 시 서비스 가져온 객체를 dto로 변환하여 반환하는 과정
+findById 메서드가 반환하는 값이 Optional<Todo>이고,
+dto는 Todo 타입을 필요로 하므로, 변환되지 않은 Optional<Todo>를 바로 넘기면 컴파일 에러가 발생한디.
+
+
 
 lv4. 로그인 인증/인가
 
