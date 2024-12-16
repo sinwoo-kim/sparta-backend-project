@@ -9,15 +9,33 @@ lv1.
 3. DB로 어떻게 전송하는가?
 - Repository JpaRepository<Todo, Long>를 extends 함.
 
-트러블슈팅
+### 트러블슈팅
 
-lv1. 
 - TodoRequestDto : HTTP객체 변환 과정에서 역직렬화 수행 안되는 문제
-에러코드
-- 시간 DB에 저장되지 않는 문제 : application @EnableJpaAuditing // Auditing 기능 비활성화 되있었음.
-- 선택 조회 기능 구현 시 서비스 가져온 객체를 dto로 변환하여 반환하는 과정에서 문제
+
+- 시간 DB에 저장되지 않는 문제   
+원인:application @EnableJpaAuditing // Auditing 기능 비활성화 되있었음.
+ 
+- 선택 조회 기능 구현 시 서비스 가져온 객체를 dto로 변환하여 반환하는 과정에서 문제   
 원인: findById 메서드가 반환하는 값이 Optional<Todo>이고, dto는 Todo 타입을 필요로 하므로, 변환되지 않은 Optional<Todo>를 바로 넘기면 컴파일 에러가 발생한디.
 해결: .orElseThrow() 메서드를 사용하면 **Optional<T>**에서 값을 꺼내어 원하는 타입(T)으로 변환해주는 메서드입니다. 즉, Optional<Todo>를 Todo로 변환해줍니다.
+
+- Dirty Checking 안되는 문제   
+  원인:@Transactional을 활성화시켜야 합니다.
+
+lv2.
+
+[추가] 유저 테이블 생성(유저명, 이메일, 작성일) // 작성일 필드는 JPA Auditing을 활용   
+[변경] 연관 관계 구현(일정은 작성 유저명 필드 -> 유저 고유 식별자 필드)
+
+### 트러블 슈팅
+
+- 유저 테이블 생성 실패   
+원인: 유저 엔티티 @어노테이션 누락(@Table, @Column)
+
+
+- 유저 생성 시 "this.userRepository" is null 예외 발생   
+원인: 계층 생성 시 @AllArgsConstructor 누락
 
 
 

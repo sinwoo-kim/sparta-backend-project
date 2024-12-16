@@ -1,22 +1,18 @@
-package scheduledevelop.lv1;
+package scheduledevelop.lv2;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import scheduledevelop.lv2.dto.TodoRequestDto;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity(name = "todo")
 public class Todo extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id 자동 생성
     private Long id;
+
 
     @Column(nullable = false, unique = true) // null 허용 안함
     private String authorName;
@@ -33,6 +29,11 @@ public class Todo extends BaseEntity {
         this.contents = contents;
     }
 
-    protected Todo() {}
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    protected Todo() {
+    }
 
 }
