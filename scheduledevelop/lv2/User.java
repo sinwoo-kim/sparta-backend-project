@@ -19,7 +19,7 @@ public class User extends BaseEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String name;
+    private String username;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -28,7 +28,7 @@ public class User extends BaseEntity {
     private LocalDateTime createAt;
 
     public User(String name, String email) {
-        this.name = name;
+        this.username = name;
         this.email = email;
     }
 

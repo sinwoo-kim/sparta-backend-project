@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import scheduledevelop.lv2.dto.UserRequestDto;
-import scheduledevelop.lv2.dto.UserResponseDto;
+import scheduledevelop.lv2.dto.userdto.UserRequestDto;
+import scheduledevelop.lv2.dto.userdto.UserResponseDto;
 import scheduledevelop.lv2.service.UserService;
 
 import java.util.List;

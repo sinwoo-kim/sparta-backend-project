@@ -2,12 +2,9 @@ package scheduledevelop.lv2.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import scheduledevelop.lv2.Todo;
 import scheduledevelop.lv2.User;
-import scheduledevelop.lv2.dto.TodosResponseDto;
 import scheduledevelop.lv2.repository.UserRepository;
-import scheduledevelop.lv2.dto.UserRequestDto;
-import scheduledevelop.lv2.dto.UserResponseDto;
+import scheduledevelop.lv2.dto.userdto.UserResponseDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +33,7 @@ public class UserService {
 
     public UserResponseDto modifyUser(Long id, String name, String email) {
         User foundUser = userRepository.findByIdorElseThrow(id);
-        foundUser.setName(name);
+        foundUser.setUsername(name);
         foundUser.setEmail(email);
 
         return new UserResponseDto(foundUser);

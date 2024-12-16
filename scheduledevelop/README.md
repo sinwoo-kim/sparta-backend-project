@@ -33,9 +33,10 @@ lv2.
 - 유저 테이블 생성 실패   
 원인: 유저 엔티티 @어노테이션 누락(@Table, @Column)
 
-
 - 유저 생성 시 "this.userRepository" is null 예외 발생   
 원인: 계층 생성 시 @AllArgsConstructor 누락
+
+- 연관 관계 매핑
 
 
 

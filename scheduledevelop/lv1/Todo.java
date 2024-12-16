@@ -1,6 +1,5 @@
 package scheduledevelop.lv1;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.Setter;
-import scheduledevelop.lv2.dto.TodoRequestDto;
 
 @Getter @Setter
 @Entity(name = "todo")

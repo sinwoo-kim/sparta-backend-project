@@ -1,4 +1,4 @@
-package scheduledevelop.lv2.dto;
+package scheduledevelop.lv2.dto.userdto;
 
 import lombok.Getter;
 import scheduledevelop.lv2.User;
@@ -12,7 +12,7 @@ public class UserResponseDto {
 
     public UserResponseDto(User user) {
         this.id = user.getId();
-        this.name = user.getName();
+        this.name = user.getUsername();
         this.email = user.getEmail();
     }
 }

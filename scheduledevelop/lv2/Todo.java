@@ -15,7 +15,7 @@ public class Todo extends BaseEntity {
 
 
     @Column(nullable = false, unique = true) // null 허용 안함
-    private String authorName;
+    private String username;
 
     @Column(nullable = false)
     private String title;
@@ -23,8 +23,8 @@ public class Todo extends BaseEntity {
     @Column(columnDefinition = "longtext")
     private String contents;
 
-    public Todo(String authorName, String title, String contents) {
-        this.authorName = authorName;
+    public Todo(String username, String title, String contents) {
+        this.username = username;
         this.title = title;
         this.contents = contents;
     }

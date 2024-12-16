@@ -1,4 +1,4 @@
-package scheduledevelop.lv2.dto;
+package scheduledevelop.lv2.dto.tododto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TodoRequestDto {
 
-    private String authorName;
+    private Long id;
+    private String username;
     private String title;
     private String contents;
 

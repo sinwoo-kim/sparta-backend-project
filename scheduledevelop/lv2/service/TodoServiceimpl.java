@@ -2,18 +2,17 @@ package scheduledevelop.lv2.service;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import scheduledevelop.lv2.Todo;
-import scheduledevelop.lv2.dto.TodoFindResponseDto;
-import scheduledevelop.lv2.dto.TodoResponseDto;
-import scheduledevelop.lv2.dto.TodosResponseDto;
+import scheduledevelop.lv2.User;
+import scheduledevelop.lv2.dto.tododto.TodoFindResponseDto;
+import scheduledevelop.lv2.dto.tododto.TodoResponseDto;
+import scheduledevelop.lv2.dto.tododto.TodosResponseDto;
 import scheduledevelop.lv2.repository.TodoRepository;
+import scheduledevelop.lv2.repository.UserRepository;
 
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,11 +20,17 @@ import java.util.stream.Collectors;
 public class TodoServiceimpl implements TodoService {
 
     private final TodoRepository todoRepository;
+    private final UserRepository userRepository;
+
     // 1. todo CREATE
     @Override
-    public TodoResponseDto createTodo(String authorName, String title, String contents) {
+    public TodoResponseDto createTodo(Long id, String username, String title, String contents) {
 
-        Todo todo = new Todo(authorName, title, contents);
+        User findUser = userRepository.findByIdorElseThrow(id);
+
+        Todo todo = new Todo(username, title, contents);
+        todo.setUser(findUser);
+
         Todo savedTodo = todoRepository.save(todo);
 
         return new TodoResponseDto(savedTodo);
