@@ -50,5 +50,11 @@ public class UserController {
         UserResponseDto modifyUser = userService.modifyUser(id, requestDto.getName(), requestDto.getEmail());
         return new ResponseEntity<>(modifyUser, HttpStatus.OK);
     }
+
     // 5. DELETE USER
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUserAPI(@PathVariable("id") Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.ok("User deletion successful");
+    }
 }
