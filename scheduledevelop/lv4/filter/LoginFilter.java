@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.PatternMatchUtils;
+import scheduledevelop.lv4.Const;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -33,9 +34,10 @@ public class LoginFilter implements Filter {
             HttpSession session = httpServletRequest.getSession(false);
             log.info("session = " + session);
             // 로그인했는지 안했는지 검증
-            if (session == null || session.getAttribute("sessionKey") == null) {
+            if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
                 log.info("LoginFilter Request URI: {}", requestURI);
-                throw new RuntimeException("로그인 해주세요.");
+                httpServletResponse.sendRedirect("/user/session-login");
+                return;
             }
             // 성공
             log.info("로그인에 성공했습니다.");

@@ -28,16 +28,8 @@ public class SessionHomeController {
         // 세션 검증
         HttpSession session = request.getSession(false);
 
-        if (session == null) {
-            return "/user/session-login";
-        }
-
         // 유저정보 검증
         LoginResponseDto loginUser = (LoginResponseDto) session.getAttribute(Const.LOGIN_USER);
-
-        if (loginUser == null) {
-            return "/user/session-login";
-        }
 
         model.addAttribute("loginUser", loginUser);
         return "/user/session-home";
