@@ -1,10 +1,10 @@
 package scheduledevelop.lv4.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scheduledevelop.lv4.dto.userdto.SignUpRequestDto;
 import scheduledevelop.lv4.dto.userdto.SignUpResponseDto;
@@ -24,7 +24,7 @@ public class UserController {
 
     // 1. CREATE USER
     @PostMapping("/signup")
-    public ResponseEntity<SignUpResponseDto> signUp(@Validated @RequestBody SignUpRequestDto signUpRequestDto) {
+    public ResponseEntity<SignUpResponseDto> signUp(@Valid @RequestBody SignUpRequestDto signUpRequestDto) {
         log.info("signUp을 실행합니다.");
         SignUpResponseDto signedUp = userService.signUp(signUpRequestDto);
         return new ResponseEntity<>(signedUp, HttpStatus.CREATED);

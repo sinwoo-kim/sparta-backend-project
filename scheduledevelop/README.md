@@ -86,3 +86,9 @@ PatternMatchUtils.simpleMatch(WhiteList, requestURI) // 하나라도 있으면 t
 [해결] html 파일 경로를 templates/todo/... -> templates/... 로 변경하였습니다.  
 
 4. 로컬에서 실행이 안됨
+
+lv5 다양한 예외 처리 적용
+
+[추가] Validation활용
+[조건] @Pattern 사용해서 회원가입, EMail 데이터 검증
+
