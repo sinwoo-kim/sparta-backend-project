@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import scheduledevelop.lv4.dto.userdto.LoginRequestDto;
+import scheduledevelop.lv4.dto.userdto.LoginResponseDto;
 import scheduledevelop.lv4.dto.userdto.SignUpRequestDto;
 
 import java.time.LocalDateTime;

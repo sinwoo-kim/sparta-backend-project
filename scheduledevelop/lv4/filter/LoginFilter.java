@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Slf4j
 public class LoginFilter implements Filter {
     // 인증을 하지 않아도 될 URL Path 배열
-    private static final String[] WHITE_LIST = {"/", "/todo", "/todo/*", "/user", "/user/*", "/user/signup", "/user/session-login", "/logout", "/user/session-home"};
+    private static final String[] WHITE_LIST = {"/", "/todo", "/todo/*", "/user", "/user/*"};
 
     @Override
     public void doFilter(ServletRequest Request, ServletResponse Response, FilterChain Chain) throws IOException, ServletException {

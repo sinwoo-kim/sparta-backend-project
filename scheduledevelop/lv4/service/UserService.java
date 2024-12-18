@@ -3,7 +3,11 @@ package scheduledevelop.lv4.service;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import scheduledevelop.lv4.dto.userdto.*;
 import scheduledevelop.lv4.entity.User;
 import scheduledevelop.lv4.repository.UserRepository;
@@ -17,6 +21,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserService {
 
+    private final PasswordEncoder passwordEncoder;
     UserRepository userRepository;
 
     /**
@@ -24,7 +29,14 @@ public class UserService {
      * @param signUpRequestDto
      * @return Dto 변환 로직을 사용
      */
+    @Transactional
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto) {
+
+        // 비밀번호 암호화
+        String rawPassword = signUpRequestDto.getPassword();
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+        signUpRequestDto.setPassword(encodedPassword);
+
         // Dto 변환 로직 사용
         User newUser = User.createFromSignUpDto(signUpRequestDto);
         User savedUser = userRepository.save(newUser);
@@ -39,8 +51,14 @@ public class UserService {
     public LoginResponseDto login(LoginRequestDto loginRequestDto) {
         // dto -> User 변환 로직 구현
         User loginRequest = User.toEntityFromLoginRequestDto(loginRequestDto);
-        User findMatchedUser = userRepository.findByEmailAndPasswordOrElseThrow(loginRequest.getEmail(), loginRequest.getPassword());
-        return LoginResponseDto.of(findMatchedUser);
+        // 사용자 조회
+        User findLoginUser = userRepository.findByEmailOrElseThrow(loginRequest.getEmail());
+        log.info("findLoginUser: {}" + findLoginUser);
+
+        if(!passwordEncoder.matches(loginRequest.getPassword(),findLoginUser.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다.");
+        }
+        return LoginResponseDto.of(findLoginUser);
     }
 
     // READ :: ALL

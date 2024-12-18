@@ -92,3 +92,14 @@ lv5 다양한 예외 처리 적용
 [추가] Validation활용
 [조건] @Pattern 사용해서 회원가입, EMail 데이터 검증
 
+lv6 비밀번호 암호화
+
+1. 의존성 추가
+   implementation 'org.springframework.boot:spring-boot-starter-security'
+   implementation 'org.springframework.boot:spring-boot-starter-web' // (선택) 웹 기능을 사용 중이라면 필요
+   implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // (선택) JPA를 사용할 경우
+
+트러블 슈팅
+
+엔코딩 적용 후 MethodArgumentTypeMismatchException 예외 발생
+[에러코드] Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "session-login"]

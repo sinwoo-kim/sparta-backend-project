@@ -24,13 +24,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * 로그인 email & paswword 확인 로직 from UserService.login()
      *
      * @param email
-     * @param password
      * @return
      */
-    Optional<User> findByEmailAndPassword(String email, String password);
+    Optional<User> findByEmail(String email);
 
-    default User findByEmailAndPasswordOrElseThrow(String email, String password) {
-        return findByEmailAndPassword(email, password)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid email or password"));
+    default User findByEmailOrElseThrow(String email) {
+        return findByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid email" + email));
     }
 }
