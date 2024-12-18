@@ -1,4 +1,4 @@
-package scheduledevelop.lv2.dto.userdto;
+package scheduledevelop.lv4.dto.userdto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

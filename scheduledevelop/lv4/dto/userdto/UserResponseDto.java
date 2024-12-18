@@ -1,7 +1,7 @@
-package scheduledevelop.lv2.dto.userdto;
+package scheduledevelop.lv4.dto.userdto;
 
 import lombok.Getter;
-import scheduledevelop.lv2.entity.User;
+import scheduledevelop.lv4.entity.User;
 
 @Getter
 public class UserResponseDto {

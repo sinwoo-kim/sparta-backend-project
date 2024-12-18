@@ -1,7 +1,7 @@
 package scheduledevelop.lv2.dto.tododto;
 
 import lombok.Getter;
-import scheduledevelop.lv2.Todo;
+import scheduledevelop.lv2.entity.Todo;
 
 import java.time.LocalDateTime;
 

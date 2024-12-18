@@ -1,12 +1,12 @@
-package scheduledevelop.lv2.dto.tododto;
+package scheduledevelop.lv4.dto.tododto;
 
 import lombok.Getter;
-import scheduledevelop.lv2.entity.Todo;
+import scheduledevelop.lv4.entity.Todo;
 
 import java.time.LocalDateTime;
 
 @Getter
-public class TodosResponseDto {
+public class TodoFindResponseDto {
 
     private final Long id;
     private final String username;
@@ -15,7 +15,7 @@ public class TodosResponseDto {
     private LocalDateTime createAt;    // 생성 날짜
     private LocalDateTime modifiedAt;  // 수정 날짜
 
-    public TodosResponseDto(Todo todo) {
+    public TodoFindResponseDto(Todo todo) {
         this.id = todo.getId();
         this.username = todo.getUsername();
         this.title = todo.getTitle();

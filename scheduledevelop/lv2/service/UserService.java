@@ -1,8 +1,9 @@
 package scheduledevelop.lv2.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import scheduledevelop.lv2.User;
+import scheduledevelop.lv2.entity.User;
 import scheduledevelop.lv2.repository.UserRepository;
 import scheduledevelop.lv2.dto.userdto.UserResponseDto;
 
@@ -15,8 +16,8 @@ public class UserService {
 
     UserRepository userRepository;
 
-    public UserResponseDto createUser(String name, String email) {
-        User user = new User(name, email);
+    public UserResponseDto createUser(String name, String password, String email) {
+        User user = new User(name, password, email);
         User savedUser = userRepository.save(user);
         return new UserResponseDto(savedUser);
     }
@@ -27,12 +28,13 @@ public class UserService {
     }
 
     public UserResponseDto findUser(Long id) {
-        User foundUser = userRepository.findByIdorElseThrow(id);
+        User foundUser = userRepository.findByUserIdorElseThrow(id);
         return new UserResponseDto(foundUser);
     }
 
+    @Transactional
     public UserResponseDto modifyUser(Long id, String name, String email) {
-        User foundUser = userRepository.findByIdorElseThrow(id);
+        User foundUser = userRepository.findByUserIdorElseThrow(id);
         foundUser.setUsername(name);
         foundUser.setEmail(email);
 
@@ -40,7 +42,7 @@ public class UserService {
     }
 
     public void deleteUser(Long id) {
-        User foundUser = userRepository.findByIdorElseThrow(id);
+        User foundUser = userRepository.findByUserIdorElseThrow(id);
         userRepository.deleteById(id);
     }
 }

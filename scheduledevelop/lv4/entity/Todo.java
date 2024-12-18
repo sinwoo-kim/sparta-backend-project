@@ -1,4 +1,4 @@
-package scheduledevelop.lv2;
+package scheduledevelop.lv4.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -31,7 +31,7 @@ public class Todo extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user; //findUser를 심어준다.
 
     protected Todo() {
     }

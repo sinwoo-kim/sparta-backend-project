@@ -3,7 +3,7 @@ package scheduledevelop.lv2.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
-import scheduledevelop.lv2.Todo;
+import scheduledevelop.lv2.entity.Todo;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 

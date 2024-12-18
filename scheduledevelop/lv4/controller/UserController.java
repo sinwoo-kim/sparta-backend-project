@@ -1,13 +1,16 @@
-package scheduledevelop.lv2.controller;
+package scheduledevelop.lv4.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import scheduledevelop.lv2.dto.userdto.UserRequestDto;
-import scheduledevelop.lv2.dto.userdto.UserResponseDto;
-import scheduledevelop.lv2.service.UserService;
+import scheduledevelop.lv4.dto.userdto.SignUpRequestDto;
+import scheduledevelop.lv4.dto.userdto.SignUpResponseDto;
+import scheduledevelop.lv4.dto.userdto.UserRequestDto;
+import scheduledevelop.lv4.dto.userdto.UserResponseDto;
+import scheduledevelop.lv4.service.UserService;
 
 import java.util.List;
 
@@ -20,22 +23,22 @@ public class UserController {
     private final UserService userService;
 
     // 1. CREATE USER
-    @PostMapping
-    public ResponseEntity<UserResponseDto> createUserAPI(@RequestBody UserRequestDto requestDto) {
-        log.info("createUserAPI를 실행합니다.");
-        UserResponseDto createdUser = userService.createUser(requestDto.getName(), requestDto.getPassword(), requestDto.getEmail());
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    @PostMapping("/signup")
+    public ResponseEntity<SignUpResponseDto> signUp(@Validated @RequestBody SignUpRequestDto signUpRequestDto) {
+        log.info("signUp을 실행합니다.");
+        SignUpResponseDto signedUp = userService.signUp(signUpRequestDto);
+        return new ResponseEntity<>(signedUp, HttpStatus.CREATED);
     }
 
     // 2. READ USERS ALL
-    @GetMapping
+    @GetMapping()
     public List<UserResponseDto> findUsersAPI() {
         log.info("findUsersAPI를 실행합니다.");
         return userService.findUsers();
     }
 
-    // 3. READ USER
-    @GetMapping("/{id}")
+    // 3. READ SELECT USER
+    @GetMapping("{id}")
     public ResponseEntity<UserResponseDto> findUserAPI(@PathVariable("id") Long id) {
         log.info("findUserAPI를 실행합니다.");
         UserResponseDto foundUser = userService.findUser(id);

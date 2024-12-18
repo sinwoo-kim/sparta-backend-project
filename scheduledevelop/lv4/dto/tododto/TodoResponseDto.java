@@ -1,7 +1,7 @@
-package scheduledevelop.lv2.dto.tododto;
+package scheduledevelop.lv4.dto.tododto;
 
 import lombok.Getter;
-import scheduledevelop.lv2.entity.Todo;
+import scheduledevelop.lv4.entity.Todo;
 
 @Getter
 public class TodoResponseDto {
