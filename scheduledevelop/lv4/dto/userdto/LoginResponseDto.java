@@ -10,13 +10,13 @@ import scheduledevelop.lv4.entity.User;
 @NoArgsConstructor
 public class LoginResponseDto {
 
-    private Long id;
+    private Long userId;
     private String email;
     private String username;
 
     // 생성 잠금
-    private LoginResponseDto(Long id, String email, String username) {
-        this.id = id;
+    private LoginResponseDto(Long userId, String email, String username) {
+        this.userId = userId;
         this.email = email;
         this.username = username;
     }
@@ -27,6 +27,6 @@ public class LoginResponseDto {
      * @return 생성된 LoginResponseDto 객체
      */
     public static LoginResponseDto of(User user) {
-        return new LoginResponseDto(user.getId(), user.getEmail(), user.getUsername());
+        return new LoginResponseDto(user.getUserId(), user.getEmail(), user.getUsername());
     }
 }

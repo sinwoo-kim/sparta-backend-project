@@ -29,7 +29,6 @@ public class TodoServiceimpl implements TodoService {
 
         // 1. 유저 ID 조회
         User findByIdFromCreateUserId = userRepository.findByIdOrElseThrow(todoCreateRequestDto.getUserId());
-        log.info("2. findByIdFromCreateUserId = {}", findByIdFromCreateUserId);
 
         // 2. 생성 (repository에는 Todo 객체로 저장된다.)
         Todo newTodo = Todo.createFromCreateTodoDto(todoCreateRequestDto);
@@ -37,7 +36,7 @@ public class TodoServiceimpl implements TodoService {
         // 3. 연관관계 매핑
         newTodo.setUser(findByIdFromCreateUserId);
         log.info("3. newTodo = {}", newTodo);
-        log.info("4. newTodo.getUser().getId = {}", newTodo.getUser().getId());
+        log.info("4. newTodo.getUser().getId = {}", newTodo.getUser().getUserId());
 
         // 4. 매핑된 객체를 DB에 저장&반환
         return new TodoCreateResponseDto(todoRepository.save(newTodo));

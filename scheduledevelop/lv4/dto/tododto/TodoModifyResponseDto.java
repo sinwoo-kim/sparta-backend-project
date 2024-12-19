@@ -3,6 +3,8 @@ package scheduledevelop.lv4.dto.tododto;
 import lombok.Getter;
 import scheduledevelop.lv4.entity.Todo;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class TodoModifyResponseDto {
 
@@ -10,12 +12,14 @@ public class TodoModifyResponseDto {
     private final String username;
     private final String title;
     private final String contents;
+    private final LocalDateTime modifiedAt;
 
     public TodoModifyResponseDto(Todo todo) {
-        this.todoId = todo.getId();
+        this.todoId = todo.getTodoId();
         this.username = todo.getUsername();
         this.title = todo.getTitle();
         this.contents = todo.getContents();
+        this.modifiedAt = todo.getModifiedAt();
     }
 
 }

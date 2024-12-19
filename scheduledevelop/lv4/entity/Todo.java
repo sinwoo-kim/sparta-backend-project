@@ -12,7 +12,7 @@ public class Todo extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id 자동 생성
-    private Long id;
+    private Long todoId;
 
     @Column(nullable = false, unique = true) // null 허용 안함
     private String username;

@@ -7,12 +7,12 @@ import scheduledevelop.lv4.entity.User;
 @Getter
 public class SignUpResponseDto {
 
-    private Long id;
+    private Long userId;
     private String email;
     private String username;
 
-    private SignUpResponseDto(Long id, String email, String username) {
-        this.id = id;
+    private SignUpResponseDto(Long userId, String email, String username) {
+        this.userId = userId;
         this.email = email;
         this.username = username;
     }
@@ -23,7 +23,7 @@ public class SignUpResponseDto {
      * @return 생성된 SignUpResponseDto 객체
      */
     public static SignUpResponseDto of(User user) {
-        return new SignUpResponseDto(user.getId(), user.getEmail(), user.getUsername());
+        return new SignUpResponseDto(user.getUserId(), user.getEmail(), user.getUsername());
     }
 
 }

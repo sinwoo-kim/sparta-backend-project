@@ -14,11 +14,11 @@ public class TodoCreateResponseDto {
     private final Long userId;
 
     public TodoCreateResponseDto(Todo todo) {
-        this.todoId = todo.getId();
+        this.todoId = todo.getTodoId();
         this.username = todo.getUsername();
         this.title = todo.getTitle();
         this.contents = todo.getContents();
-        this.userId = todo.getUser().getId();
+        this.userId = todo.getUser().getUserId();
     }
 
 }

@@ -16,7 +16,7 @@ public class TodosResponseDto {
     private LocalDateTime modifiedAt;  // 수정 날짜
 
     public TodosResponseDto(Todo todo) {
-        this.todoId = todo.getId();
+        this.todoId = todo.getTodoId();
         this.username = todo.getUsername();
         this.title = todo.getTitle();
         this.contents = todo.getContents();

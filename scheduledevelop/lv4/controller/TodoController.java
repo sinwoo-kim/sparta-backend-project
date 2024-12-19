@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/todo")
+@RequestMapping("/todos")
 @RequiredArgsConstructor // 생성자 주입 로직 자동 생성
 public class TodoController {
 
@@ -33,22 +33,22 @@ public class TodoController {
     }
 
     // REAL TODO SELECT
-    @GetMapping("/{id}")
-    public ResponseEntity<TodoFindResponseDto> findTodoAPI(@PathVariable("id") Long id) {
+    @GetMapping("/{todoId}")
+    public ResponseEntity<TodoFindResponseDto> findTodoAPI(@PathVariable("todoId") Long id) {
         TodoFindResponseDto findTodo = todoService.findById(id);
         return new ResponseEntity<>(findTodo, HttpStatus.OK);
     }
 
     // MODIFIY TODO ( Title, Contents )
-    @PatchMapping("/{id}")
-    public ResponseEntity<TodoModifyResponseDto> modifyTodoAPI(@PathVariable("id") Long id, @RequestBody TodoModifyRequestDto requestDto) {
+    @PatchMapping("/{todoId}")
+    public ResponseEntity<TodoModifyResponseDto> modifyTodoAPI(@PathVariable("todoId") Long id, @RequestBody TodoModifyRequestDto requestDto) {
         return new ResponseEntity<>(todoService.modifyTodo(id, requestDto.getTitle(), requestDto.getContents()), HttpStatus.OK);
     }
 
 
     // DELETE TODO SELECT
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTodoAPI(@PathVariable("id") Long id) {
+    @DeleteMapping("/{todoId}")
+    public ResponseEntity<String> deleteTodoAPI(@PathVariable("todoId") Long id) {
         todoService.deleteTodo(id);
         return ResponseEntity.ok("Todo deletion successful");
     }
