@@ -14,7 +14,7 @@ import scheduledevelop.lv4.service.UserService;
 
 @Controller
 @RequiredArgsConstructor // 생성자 주입이나 불변 객체 설계 시 사용
-@RequestMapping("/user")
+@RequestMapping("/users")
 @Slf4j
 public class SessionHomeController {
 
@@ -32,6 +32,6 @@ public class SessionHomeController {
         LoginResponseDto loginUser = (LoginResponseDto) session.getAttribute(Const.LOGIN_USER);
 
         model.addAttribute("loginUser", loginUser);
-        return "/user/session-home";
+        return "/users/session-home";
     }
 }

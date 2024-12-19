@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Getter
 public class TodoFindResponseDto {
 
-    private final Long id;
+    private final Long todoId;
     private final String username;
     private final String title;
     private final String contents;
@@ -16,7 +16,7 @@ public class TodoFindResponseDto {
     private LocalDateTime modifiedAt;  // 수정 날짜
 
     public TodoFindResponseDto(Todo todo) {
-        this.id = todo.getId();
+        this.todoId = todo.getId();
         this.username = todo.getUsername();
         this.title = todo.getTitle();
         this.contents = todo.getContents();

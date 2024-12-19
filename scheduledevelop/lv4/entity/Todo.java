@@ -3,6 +3,7 @@ package scheduledevelop.lv4.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import scheduledevelop.lv4.dto.tododto.TodoCreateRequestDto;
 
 @Getter
 @Setter
@@ -13,7 +14,6 @@ public class Todo extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id 자동 생성
     private Long id;
 
-
     @Column(nullable = false, unique = true) // null 허용 안함
     private String username;
 
@@ -23,17 +23,21 @@ public class Todo extends BaseEntity {
     @Column(columnDefinition = "longtext")
     private String contents;
 
-    public Todo(String username, String title, String contents) {
+    private Todo(String username, String title, String contents) {
         this.username = username;
         this.title = title;
         this.contents = contents;
     }
 
+
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user; //findUser를 심어준다.
+    private User user; // findByIdFromCreateUserId를 심어준다.
 
     protected Todo() {
     }
 
+    public static Todo createFromCreateTodoDto(TodoCreateRequestDto todoCreateRequestDto) {
+        return new Todo(todoCreateRequestDto.getUsername(),todoCreateRequestDto.getTitle(),todoCreateRequestDto.getContents());
+    }
 }

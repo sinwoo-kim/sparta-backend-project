@@ -4,10 +4,9 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.parameters.P;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import scheduledevelop.lv4.config.PasswordEncoder;
 import scheduledevelop.lv4.dto.userdto.*;
 import scheduledevelop.lv4.entity.User;
 import scheduledevelop.lv4.repository.UserRepository;
@@ -69,14 +68,14 @@ public class UserService {
 
     // READ :: FIND USER BY ID
     public UserResponseDto findUser(Long id) {
-        User findByIdFromFindUser = userRepository.findByUserIdorElseThrow(id);
+        User findByIdFromFindUser = userRepository.findByIdOrElseThrow(id);
         return new UserResponseDto(findByIdFromFindUser);
     }
 
     // MODIFY
     @Transactional
     public UserResponseDto modifyUser(Long id, String name, String email) {
-        User findByIdFromModifyUser = userRepository.findByUserIdorElseThrow(id);
+        User findByIdFromModifyUser = userRepository.findByIdOrElseThrow(id);
         findByIdFromModifyUser.setUsername(name);
         findByIdFromModifyUser.setEmail(email);
 
@@ -85,7 +84,7 @@ public class UserService {
 
     // DELETE
     public void deleteUser(Long id) {
-        User findByIdFromDeleteUser = userRepository.findByUserIdorElseThrow(id);
+        User findByIdFromDeleteUser = userRepository.findByIdOrElseThrow(id);
         userRepository.deleteById(id);
     }
 }

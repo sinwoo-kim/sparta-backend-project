@@ -5,17 +5,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.util.PatternMatchUtils;
+import org.springframework.web.server.ResponseStatusException;
 import scheduledevelop.lv4.Const;
-
 import java.io.IOException;
-import java.util.Arrays;
 
 
 @Slf4j
 public class LoginFilter implements Filter {
     // 인증을 하지 않아도 될 URL Path 배열
-    private static final String[] WHITE_LIST = {"/", "/todo", "/todo/*", "/user", "/user/*"};
+    private static final String[] WHITE_LIST = {"/", "/todo", "/todo/*", "/users", "/users/*"};
 
     @Override
     public void doFilter(ServletRequest Request, ServletResponse Response, FilterChain Chain) throws IOException, ServletException {
@@ -36,8 +36,9 @@ public class LoginFilter implements Filter {
             // 로그인했는지 안했는지 검증
             if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
                 log.info("LoginFilter Request URI: {}", requestURI);
-                httpServletResponse.sendRedirect("/user/session-login");
-                return;
+//                httpServletResponse.sendRedirect("/users/session-login");
+                // 에러 코드 401
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "로그인을 해주세요.");
             }
             // 성공
             log.info("로그인에 성공했습니다.");

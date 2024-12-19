@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import scheduledevelop.lv4.dto.tododto.TodoFindResponseDto;
-import scheduledevelop.lv4.dto.tododto.TodoRequestDto;
-import scheduledevelop.lv4.dto.tododto.TodoResponseDto;
-import scheduledevelop.lv4.dto.tododto.TodosResponseDto;
+import scheduledevelop.lv4.dto.tododto.*;
 import scheduledevelop.lv4.service.TodoService;
 
 import java.util.List;
@@ -23,10 +20,10 @@ public class TodoController {
 
     // CREATE TODO
     @PostMapping
-    public ResponseEntity<TodoResponseDto> createTodoAPI(@RequestBody TodoRequestDto requestDto) {
+    public ResponseEntity<TodoCreateResponseDto> createTodoAPI(@RequestBody TodoCreateRequestDto requestDto) {
         log.info("createTodoAPi를 실행합니다.");
-        TodoResponseDto todoResponseDto = todoService.createTodo(requestDto.getId(), requestDto.getUsername(), requestDto.getTitle(), requestDto.getContents());
-        return new ResponseEntity<>((todoResponseDto), HttpStatus.CREATED);
+        TodoCreateResponseDto todoCreateResponseDto = todoService.createTodo(requestDto);
+        return new ResponseEntity<>((todoCreateResponseDto), HttpStatus.CREATED);
     }
 
     // READ TODO ALL
@@ -44,7 +41,7 @@ public class TodoController {
 
     // MODIFIY TODO ( Title, Contents )
     @PatchMapping("/{id}")
-    public ResponseEntity<TodoResponseDto> modifyTodoAPI(@PathVariable("id") Long id, @RequestBody TodoRequestDto requestDto) {
+    public ResponseEntity<TodoModifyResponseDto> modifyTodoAPI(@PathVariable("id") Long id, @RequestBody TodoModifyRequestDto requestDto) {
         return new ResponseEntity<>(todoService.modifyTodo(id, requestDto.getTitle(), requestDto.getContents()), HttpStatus.OK);
     }
 

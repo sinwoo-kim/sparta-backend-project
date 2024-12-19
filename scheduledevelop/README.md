@@ -40,8 +40,9 @@ lv2.
 
 - 연관 관계 매핑 (id)
 
-- 삭제 후 재 생성 시 id가 밀리는 현상
-- 
+- todo 삭제 후 재 생성 시 id가 밀리는 현상
+[원인] id가 밀리는게 아니라 요청한 id는 userId 였고, 응답 Id는 todoId 였음.
+[결론] dto에 필드 네이밍을 명확하게 만들어 줘야 햇갈리지 않음.
 
 
 lv4. 로그인 인증/인가
@@ -85,8 +86,6 @@ PatternMatchUtils.simpleMatch(WhiteList, requestURI) // 하나라도 있으면 t
 ![img_1.png](img_1.png)
 [해결] html 파일 경로를 templates/todo/... -> templates/... 로 변경하였습니다.  
 
-4. 로컬에서 실행이 안됨
-
 lv5 다양한 예외 처리 적용
 
 [추가] Validation활용
@@ -99,7 +98,6 @@ lv6 비밀번호 암호화
    implementation 'org.springframework.boot:spring-boot-starter-web' // (선택) 웹 기능을 사용 중이라면 필요
    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // (선택) JPA를 사용할 경우
 
-트러블 슈팅
+lv7
 
-엔코딩 적용 후 MethodArgumentTypeMismatchException 예외 발생
-[에러코드] Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "session-login"]
+

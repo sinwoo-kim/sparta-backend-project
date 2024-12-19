@@ -1,19 +1,17 @@
 package scheduledevelop.lv4.service;
 
-import scheduledevelop.lv4.dto.tododto.TodoFindResponseDto;
-import scheduledevelop.lv4.dto.tododto.TodoResponseDto;
-import scheduledevelop.lv4.dto.tododto.TodosResponseDto;
+import scheduledevelop.lv4.dto.tododto.*;
 
 import java.util.List;
 
 public interface TodoService {
-    TodoResponseDto createTodo(Long id, String authorName, String title, String contents);
+    TodoCreateResponseDto createTodo(TodoCreateRequestDto todoCreateRequestDto);
 
     List<TodosResponseDto> findTodos();
 
     TodoFindResponseDto findById(Long id);
 
-    TodoResponseDto modifyTodo(Long id, String title, String contents);
+    TodoModifyResponseDto modifyTodo(Long id, String title, String contents);
 
     void deleteTodo(Long id);
 }

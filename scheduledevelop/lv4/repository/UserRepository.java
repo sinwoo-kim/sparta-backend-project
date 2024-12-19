@@ -8,6 +8,7 @@ import scheduledevelop.lv4.entity.User;
 
 import java.util.Optional;
 
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     /**
@@ -16,8 +17,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @param id
      * @return
      */
-    default User findByUserIdorElseThrow(Long id) {
-        return findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exit id =" + id));
+    default User findByIdOrElseThrow(Long id) {
+        return findById(id).orElseThrow(() -> new IllegalStateException("User not found for ID: " + id));
     }
 
     /**
@@ -30,6 +31,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     default User findByEmailOrElseThrow(String email) {
         return findByEmail(email)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid email" + email));
+                .orElseThrow(() -> new IllegalStateException("User not found for email"));
     }
 }

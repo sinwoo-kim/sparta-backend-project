@@ -18,20 +18,13 @@ import scheduledevelop.lv4.dto.userdto.UserResponseDto;
 import scheduledevelop.lv4.service.UserService;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 @Slf4j
 public class SessionUserController {
 
     // 의존성 주입
     private final UserService userService;
-
-
-    // 로그인 페이지 (GET)
-    @GetMapping("/login")
-    public String loginPage() {
-        return "session-login"; // 로그인 페이지 템플릿 반환
-    }
 
     @PostMapping("/session-login")
     public String login(@Valid @RequestBody LoginRequestDto loginRequestDto, HttpServletRequest request) {
@@ -47,7 +40,7 @@ public class SessionUserController {
         // Session 저장 (변환 된 loginResponseDto 객체를 전달하면 안되는가?)
         session.setAttribute(Const.LOGIN_USER, loginResponseDto);
 
-        return "redirect:/user/session-home";
+        return "redirect:/users/session-home";
 
         //
 
