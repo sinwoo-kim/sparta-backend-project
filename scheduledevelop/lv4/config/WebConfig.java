@@ -4,8 +4,6 @@ import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import scheduledevelop.lv4.filter.CustomFilter;
-import scheduledevelop.lv4.filter.LoginFilter;
 
 @Configuration
 public class WebConfig {
