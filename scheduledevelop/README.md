@@ -15,6 +15,32 @@
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+=======
+## 목차
+1. [배경](#1-배경)
+2. [사용 기술](#2-사용-기술)
+3. [API 명세](#3-api-명세)
+4. [ERD](#4-erd)
+5. [트러블 슈팅](#5-트러블-슈팅)
+***
+
+### 1. 배경
+
+이 과제는 지난 4주차 과제(JDBC로 만든 일정 관리 앱)을 JPA를 사용하여 발달시킨 버전으로,    
+아래 내용을 이해하고 애플리케이션에 적용하기 위한 목표를 가지고 있습니다.
+
+- Spring MVC, Validation 이해
+- Servlet Filter와 Cookie/Session을 활용한 인증/인가 구현
+- 연관관계 설정, CRUD
+
+프로젝트 기간: 2024.12.11 ~ 2024.12.19
+
+***
+
+### 2. 사용 기술
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![JPA](https://img.shields.io/badge/JPA-0078D7?style=for-the-badge&logo=database&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
